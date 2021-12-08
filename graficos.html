@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Registro de Peliculas </title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-info">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">Peliculas</a>
+      </div>
+    </nav>
+    <div class="container">
+      <h1 class="text-center">GRAFICOS</h1>
+    </div>
+    <div class="container">
+      <a class="btn btn-outline-primary" href="index.html">Volver atras</a>
+      <canvas id="miGrafica" width="400" height="400"></canvas>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.5.1/chart.js" charset="utf-8"></script>
+  <script type="text/javascript">
+  var A = 'A';
+  var B = 'B';
+  var C = 'C';
+  var F = 'F';
+  var peliculas = localStorage.getItem("Peliculas") ? JSON.parse(localStorage.getItem("Peliculas")) : [];
+  const filtroEQ = (eq) => {
+
+    if(peliculas.length > 0) {
+
+      return peliculas.filter( e => e.eq === eq).length;
+    }
+  }
+
+  var graficos = document.getElementById('miGrafica').getContext('2d');
+
+  var miGrafica = new Chart(graficos,{
+    type:"bar",
+    data:{
+      labels:['A','B','C','F'],
+      datasets:[{
+
+        label:['EQ Total'],
+        data: [filtroEQ('A'), filtroEQ('B'), filtroEQ('C'), filtroEQ('F')],
+        backgroundColor:[
+          'rgb(4, 214, 64)',
+          'rgb(4, 95, 214)',
+          'rgb(214, 210, 4)',
+          'rgb(214, 4, 4)'
+        ]
+      }]
+    },
+    options: {
+      scales: {
+        yAxes:[{
+          ticks:{
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  })
+  </script>
+</html>

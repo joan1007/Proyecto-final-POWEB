@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
+    <meta charset="utf-8">
+    <title>Registro de Peliculas </title>
+  </head>
+  <body>
+    <nav class="navbar navbar-dark bg-info">
+      <div class="container">
+        <a href="index.html" class="navbar-brand">Peliculas</a>
+      </div>
+    </nav>
+  
+    <div class="container">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Comentario</th>
+            <th>CA1</th>
+            <th>CA2</th>
+            <th>CA3</th>
+            <th>CA4</th>
+            <th>Promedio</th>
+            <th>EQ</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody class="tbody">
+          <tr>
+            <td><input class="form-control" type="text" name="fecha" id="fecha" value=""></td>
+            <td><input class="form-control" type="text" name="nombre" id="nombre" value=""></td>
+            <td><input class="form-control" type="text" name="comentario" id="comentario" value=""></td>
+            <td><input class="form-control" type="text" name="ca1" id="ca1" onkeyup="calcular();" value=""></td>
+            <td><input class="form-control" type="text" name="ca2" id="ca2" onkeyup="calcular();" value=""></td>
+            <td><input class="form-control" type="text" name="ca3" id="ca3" onkeyup="calcular();" value=""></td>
+            <td><input class="form-control" type="text" name="ca4" id="ca4" onkeyup="calcular();" value=""></td>
+            <td><input class="form-control" type="text" name="promedio" id="promedio" value="" readonly></td>
+            <td><input class="form-control" type="text" name="eq" id="eq" value="" readonly></td>
+            <td><button type="button" name="agregar" onclick="add()" class="btn btn-success">+</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="container mt-2">
+      <table class="table table-bordered">
+        <thead class="table">
+          <tr>
+            <th>Fecha</th>
+            <th>Nombre</th>
+            <th>Comentario</th>
+            <th>CA1</th>
+            <th>CA2</th>
+            <th>CA3</th>
+            <th>CA4</th>
+            <th>Promedio</th>
+            <th>EQ</th>
+            <th>&nbsp;</th>
+          </tr>
+        </thead>
+        <tbody id="tbPeliculas">
+
+        </tbody>
+      </table>
+    </div>
+    <div class="container d-grid gap-2 d-md-flex justify-content-md-end">
+      <a href="graficos.html" class="btn btn-info">Graficos</a>
+    </div>
+  </body>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js" integrity="sha384-W8fXfP3gkOKtndU4JGtKDvXbO53Wy8SZCQHczT5FMiiqmQfUpWbYdTil/SxwZgAN" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.min.js" integrity="sha384-skAcpIdS7UcVUC05LJ9Dxay8AXcDYfBJqt1CJ85S/CFujBsIzCIv+l9liuYLaMQ/" crossorigin="anonymous"></script>
+  <script src="script.js" charset="utf-8"></script>
+</html>
